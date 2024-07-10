@@ -3,9 +3,9 @@ import os
 
 
 class migrations:
-    def __init__(self) -> None:
+    def __init__(self,filename = 'versions') -> None:
         self.db = database()
-        self.migrations_dir = 'version'
+        self.migrations_dir = filename
 
     def get_migration_files(self):
         migration_files = [f.split(".sql")[0] for f in os.listdir(self.migrations_dir) if os.path.isfile(os.path.join(self.migrations_dir, f))]

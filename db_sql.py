@@ -15,12 +15,7 @@ class db_sql:
             print("You are connected to - ", record, "\n")
         except (Exception, psycopg2.Error) as error:
             print("Error while connecting to PostgreSQL", error)
-        return cursor,connection
 
-    def close(self,cursor,connection):
-        cursor.close()
-        connection.close()
-        print("PostgreSQL connection is closed")
 
     def connect(self):
         connection = psycopg2.connect(
@@ -30,11 +25,11 @@ class db_sql:
                 port=self.db.port,
                 database=self.db.database
             )
-        
+
         return connection
+    
     def close(self,connection):
         connection.close()
-        return True
 
     def querry(self, table_query):
         new_connection = self.connect()

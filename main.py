@@ -6,7 +6,7 @@ from migrations import migrations
 db = database()
 test = db_sql(db)
 
-mig = migrations()
+mig = migrations("version")
 connection = test.connect()
 test.test_connection(connection)
 for version in mig.get_migration_files():
