@@ -1,10 +1,8 @@
-from database import database
 import os
 
 
 class migrations:
     def __init__(self,filename = 'versions') -> None:
-        self.db = database()
         self.migrations_dir = filename
 
     def get_migration_files(self):

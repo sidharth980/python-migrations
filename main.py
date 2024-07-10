@@ -1,12 +1,12 @@
-from database import database
-from db_sql import db_sql
-from migrations import migrations
+from src.database import database
+from src.db_sql import db_sql
+from src.migrations import migrations
 
 
 db = database()
 test = db_sql(db)
 
-mig = migrations("version")
+mig = migrations()
 connection = test.connect()
 test.test_connection(connection)
 for version in mig.get_migration_files():
